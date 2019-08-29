@@ -2,20 +2,24 @@
   <div id="app">
       <h1 class="heading">Find out what Semantic Words there are for any word in your language by harvesting the power of Gavagai's Living Lexicon that is continously learning new words.</h1>
       <h3>Clicking on a word will show specific information relating to that word.</h3>
-      <div>  
-        <h2 class="results-label">Semantically similar words will appear below</h2>
+      <div>
+          <SearchBar />
+          <div class="display-results"> 
+            <h2 class="results-label">Semantically similar words will appear below</h2>
+          </div>
       </div>
   </div>
 </template>
 
 <script>
 import SearchBar from './components/SearchBar.vue'
+import lexicon from './util/lexicon';
 
 export default {
   name: 'app',
   components: {
     SearchBar
-  }
+  },
 }
 </script>
 
