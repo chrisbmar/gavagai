@@ -4,12 +4,12 @@
             <li class="semanticword" @click="searchWordInfo"> {{ (semanticWord.semanticWord).toUpperCase() }}</li>
         </ul>
         <ul :class="[ isThereWordInfo ? 'show' : 'hide']">
-            <li>Absolute Rank: <span>{this.state.wordInformationResults.length !== 0 ? this.state.wordInformationResults.absoluteRank : 'N/A'}</span></li>
-            <li>Document Frequency: <span>{this.state.wordInformationResults.length !== 0 ? this.state.wordInformationResults.documentFrequency : 'N/A'}</span></li>
-            <li>Frequency: <span>{this.state.wordInformationResults.length !== 0 ? this.state.wordInformationResults.frequency : 'N/A'}</span></li>
-            <li>Relative Rank: <span>{this.state.wordInformationResults.length !== 0 ? this.state.wordInformationResults.relativeRank : 'N/A'}</span></li>
-            <li>Vocabulary size: <span>{this.state.wordInformationResults.length !== 0 ? this.state.wordInformationResults.vocabSize : 'N/A'}</span></li>
-            <i onClick={this.toggleStateCloseWordInfo} class="fas fa-times-circle"></i>
+            <li>Absolute Rank: <span>{{this.wordInformation.absoluteRank}}</span></li>
+            <li>Document Frequency: <span>{{this.wordInformation.documentFrequency}}</span></li>
+            <li>Frequency: <span>{{this.wordInformation.frequency}}</span></li>
+            <li>Relative Rank: <span>{{this.wordInformation.relativeRank}}</span></li>
+            <li>Vocabulary size: <span>{{this.wordInformation.vocabSize}}</span></li>
+            <i @click="toggleShow" class="fas fa-times-circle"></i>
         </ul>
     </div>
 </template>
@@ -34,6 +34,9 @@ export default {
             this.wordInformation = wordInfo;
             console.log(this.wordInformation);
             this.isThereWordInfo = true;
+        },
+        toggleShow() {
+            this.isThereWordInfo = false;
         }
     }
 }
