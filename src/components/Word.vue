@@ -1,24 +1,40 @@
 <template>
     <div class="worddiv">
         <ul class="list">
-            <li class="semanticword" onClick={this.searchWordInfo}> {{ (semanticWord.semanticWord).toUpperCase() }}</li>
+            <li class="semanticword" @click="searchWordInfo"> {{ (semanticWord.semanticWord).toUpperCase() }}</li>
         </ul>
-        <ul class="hide">
+        <ul :class="[ isThereWordInfo ? 'show' : 'hide']">
             <li>Absolute Rank: <span>{this.state.wordInformationResults.length !== 0 ? this.state.wordInformationResults.absoluteRank : 'N/A'}</span></li>
             <li>Document Frequency: <span>{this.state.wordInformationResults.length !== 0 ? this.state.wordInformationResults.documentFrequency : 'N/A'}</span></li>
             <li>Frequency: <span>{this.state.wordInformationResults.length !== 0 ? this.state.wordInformationResults.frequency : 'N/A'}</span></li>
             <li>Relative Rank: <span>{this.state.wordInformationResults.length !== 0 ? this.state.wordInformationResults.relativeRank : 'N/A'}</span></li>
             <li>Vocabulary size: <span>{this.state.wordInformationResults.length !== 0 ? this.state.wordInformationResults.vocabSize : 'N/A'}</span></li>
             <i onClick={this.toggleStateCloseWordInfo} class="fas fa-times-circle"></i>
-            </ul>
+        </ul>
     </div>
 </template>
 
 <script>
+import lexicon from '../util/lexicon';
+
 export default {
     name: "Word",
     props: {
         semanticWord: Object
+    },
+    data() {
+        return {
+            wordInformation: {},
+            isThereWordInfo: false
+        }
+    },
+    methods: {
+        async searchWordInfo(event) {
+            const wordInfo = await lexicon.wordInfoSearch(event.target.innerText);
+            this.wordInformation = wordInfo;
+            console.log(this.wordInformation);
+            this.isThereWordInfo = true;
+        }
     }
 }
 </script>
