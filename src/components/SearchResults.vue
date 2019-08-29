@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import WordList from './WordList';
+
 export default {
     name: "SearchResults",
+    components: {
+        WordList
+    }
 }
 </script>
 

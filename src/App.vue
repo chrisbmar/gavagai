@@ -27,10 +27,6 @@ export default {
 </script>
 
 <style>
-#app {
-  height: 1000px;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
 html {
