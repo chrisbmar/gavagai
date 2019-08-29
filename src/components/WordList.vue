@@ -1,6 +1,8 @@
 <template>
     <div class="wordlist">
-        <Word/>
+        <div v-for="(semanticWord, index) in words" v-bind:key="index">
+            <Word :semanticWord="semanticWord"/>
+        </div>
     </div>
 </template>
 
@@ -9,6 +11,9 @@ import Word from './Word';
 
 export default {
    name: "WordList",
+   props: {
+       words: Array
+   },
    components: {
        Word
    }
@@ -17,7 +22,9 @@ export default {
 
 <style scoped>
   .wordlist {
-    display: flex;
+    display: inline-block;
+    width: 90%;
+    margin-left: 6px;
     flex-wrap: wrap;
     justify-content: center;
  }

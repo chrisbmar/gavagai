@@ -1,7 +1,7 @@
 <template>
     <div class="worddiv">
         <ul class="list">
-            <li class="semanticword" onClick={this.searchWordInfo}>Word</li>
+            <li class="semanticword" onClick={this.searchWordInfo}> {{ (semanticWord.semanticWord).toUpperCase() }}</li>
         </ul>
         <ul class="hide">
             <li>Absolute Rank: <span>{this.state.wordInformationResults.length !== 0 ? this.state.wordInformationResults.absoluteRank : 'N/A'}</span></li>
@@ -17,6 +17,9 @@
 <script>
 export default {
     name: "Word",
+    props: {
+        semanticWord: Object
+    }
 }
 </script>
 
@@ -24,13 +27,14 @@ export default {
 .worddiv {
     padding: 10px;
     margin: 10px;
-    width: 80%;
+    width: 100%;
     text-align: center;
     display: inline-block;
     border-radius: 7px;
     background-color: grey;
     opacity: 0.8;
     color: white;
+    border: 1px solid red;
 }
 
 .list {
@@ -41,6 +45,7 @@ export default {
     margin-right: 35px;
     padding: 5px 0px;
     font-size: 25px;
+    border: 1px solid green;
 }
 
 .semanticword:hover {
