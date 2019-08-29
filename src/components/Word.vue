@@ -4,11 +4,11 @@
             <li class="semanticword" @click="searchWordInfo"> {{ this.loading ? 'Loading...' : (semanticWord.semanticWord).toUpperCase() }}</li>
         </ul>
         <ul :class="[ isThereWordInfo ? 'show' : 'hide']">
-            <li>Absolute Rank: <span>{{this.wordInformation.absoluteRank}}</span></li>
-            <li>Document Frequency: <span>{{this.wordInformation.documentFrequency}}</span></li>
-            <li>Frequency: <span>{{this.wordInformation.frequency}}</span></li>
-            <li>Relative Rank: <span>{{this.wordInformation.relativeRank}}</span></li>
-            <li>Vocabulary size: <span>{{this.wordInformation.vocabSize}}</span></li>
+            <li>Absolute Rank: <span>{{ this.wordInformation.length !== 0 ? this.wordInformation.absoluteRank : 'N/A'}}</span></li>
+            <li>Document Frequency: <span>{{ this.wordInformation.length !== 0 ? this.wordInformation.documentFrequency : 'N/A'}}</span></li>
+            <li>Frequency: <span>{{ this.wordInformation.length !== 0 ? this.wordInformation.frequency : 'N/A'}}</span></li>
+            <li>Relative Rank: <span>{{ this.wordInformation.length !== 0 ? this.wordInformation.relativeRank : 'N/A'}}</span></li>
+            <li>Vocabulary size: <span>{{ this.wordInformation.length !== 0  ? this.wordInformation.vocabSize : 'N/A'}}</span></li>
             <i @click="toggleShow" class="fas fa-times-circle"></i>
         </ul>
     </div>
