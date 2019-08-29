@@ -1,7 +1,7 @@
 <template>
     <div class="worddiv">
         <ul class="list">
-            <li class="semanticword" @click="searchWordInfo"> {{ (semanticWord.semanticWord).toUpperCase() }}</li>
+            <li class="semanticword" @click="searchWordInfo"> {{ this.loading ? 'Loading...' : (semanticWord.semanticWord).toUpperCase() }}</li>
         </ul>
         <ul :class="[ isThereWordInfo ? 'show' : 'hide']">
             <li>Absolute Rank: <span>{{this.wordInformation.absoluteRank}}</span></li>
@@ -25,19 +25,22 @@ export default {
     data() {
         return {
             wordInformation: {},
-            isThereWordInfo: false
+            isThereWordInfo: false,
+            loading: false,
         }
     },
     methods: {
         async searchWordInfo(event) {
+            this.loading = true;
             const wordInfo = await lexicon.wordInfoSearch(event.target.innerText);
             this.wordInformation = wordInfo;
             console.log(this.wordInformation);
             this.isThereWordInfo = true;
+            this.loading = false;
         },
         toggleShow() {
             this.isThereWordInfo = false;
-        }
+        },
     }
 }
 </script>
@@ -53,7 +56,6 @@ export default {
     background-color: grey;
     opacity: 0.8;
     color: white;
-    border: 1px solid red;
 }
 
 .list {
@@ -64,7 +66,6 @@ export default {
     margin-right: 35px;
     padding: 5px 0px;
     font-size: 25px;
-    border: 1px solid green;
 }
 
 .semanticword:hover {

@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     async search(term, value) {
-      console.log(term, value);
+      // console.log(term, value);
         this.semanticWordResults = [];
         const data = await lexicon.search(term, value);
         this.semanticWordResults = data;
