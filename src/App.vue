@@ -3,10 +3,10 @@
       <h1 class="heading">Find out what Semantic Words there are for any word in your language by harvesting the power of Gavagai's Living Lexicon that is continously learning new words.</h1>
       <h3>Clicking on a word will show specific information relating to that word.</h3>
       <div>
-          <SearchBar />
+          <SearchBar @clicked="search"/>
           <div class="display-results"> 
             <h2 class="results-label">Semantically similar words will appear below</h2>
-            <SearchResults />
+            <SearchResults :words="semanticWordResults"/>
           </div>
       </div>
   </div>
@@ -19,11 +19,25 @@ import SearchResults from './components/SearchResults'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      semanticWordResults: []
+    }
+  },
   components: {
     SearchBar,
     SearchResults
   },
-}
+  methods: {
+    async search(term, value) {
+      console.log(term, value);
+        this.semanticWordResults = [];
+        const data = await lexicon.search(term, value);
+        this.semanticWordResults = data;
+        // console.log(this.semanticWordResults);
+    }
+  }
+};
 </script>
 
 <style>

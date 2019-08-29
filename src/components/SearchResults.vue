@@ -1,6 +1,6 @@
 <template>
     <div class="search-results">
-        <WordList />
+        <WordList :words="words"/>
     </div>
 </template>
 
@@ -9,6 +9,9 @@ import WordList from './WordList';
 
 export default {
     name: "SearchResults",
+    props: {
+        words: Array
+    },
     components: {
         WordList
     }

@@ -56,17 +56,25 @@
                 <option value="VI">Vietanamese</option>
             </select>  
             <button 
-            class="search-button">SEARCH</button>
+            class="search-button" @click="clicked">SEARCH</button>
         </div>
 </template>
 
 <script>
 export default {
   name: "SearchBar",
+  props: {
+    method: { type: Function }
+  },
   data() {
     return {
       word: '',
       selected: '',
+    }
+  },
+  methods: {
+    clicked(event) {
+      this.$emit('clicked', this.word, this.selected)
     }
   }
 }
