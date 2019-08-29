@@ -56,7 +56,7 @@
                 <option value="VI">Vietanamese</option>
             </select>  
             <button 
-            class="search-button" @click="clicked">SEARCH</button>
+            class="search-button" @click="clicked">{{words.length !== 0 ? 'SEARCH' : this.searchButton}}</button>
         </div>
 </template>
 
@@ -64,16 +64,18 @@
 export default {
   name: "SearchBar",
   props: {
-    method: { type: Function }
+    words: Array
   },
   data() {
     return {
       word: '',
       selected: '',
+      searchButton: 'SEARCH'
     }
   },
   methods: {
     clicked(event) {
+      this.searchButton = 'Loading...';
       this.$emit('clicked', this.word, this.selected)
     }
   }
