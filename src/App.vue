@@ -6,6 +6,7 @@
           <SearchBar />
           <div class="display-results"> 
             <h2 class="results-label">Semantically similar words will appear below</h2>
+            <SearchResults />
           </div>
       </div>
   </div>
@@ -14,11 +15,13 @@
 <script>
 import SearchBar from './components/SearchBar.vue'
 import lexicon from './util/lexicon';
+import SearchResults from './components/SearchResults'
 
 export default {
   name: 'app',
   components: {
-    SearchBar
+    SearchBar,
+    SearchResults
   },
 }
 </script>
