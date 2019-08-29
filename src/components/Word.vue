@@ -46,8 +46,7 @@ export default {
 
 <style scoped>
 .worddiv {
-    padding: 10px;
-    margin: 10px;
+    margin: 10px 0px;
     width: 100%;
     text-align: center;
     display: inline-block;
@@ -106,11 +105,5 @@ span {
 .fas:hover {
     cursor: pointer;
     opacity: 0.4;
-}
-
-@media only screen and (max-width: 425px){
-    .worddiv {
-        width: 95%;
-    }
 }
 </style>

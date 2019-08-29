@@ -39,11 +39,10 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
 html {
   font-size: 18px;
-  font-family: 'Raleway', sans-serif;
+  font-family: sans-serif;
   color: white;
 }
 

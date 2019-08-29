@@ -20,6 +20,8 @@ export default {
 
 <style scoped>
   .search-results {
+    display: flex;
+    justify-content: center;
     width: 550px;
     height: 700px;
     overflow: scroll;
@@ -32,7 +34,7 @@ export default {
 
 @media only screen and (max-width: 730px) {
   .search-results {
-        width: 90%;
+        width: 100%;
         padding: 0;
         margin-top: 20px;
         height: auto;

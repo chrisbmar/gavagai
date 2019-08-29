@@ -24,8 +24,8 @@ export default {
   .wordlist {
     display: inline-block;
     width: 90%;
-    margin-left: 6px;
     flex-wrap: wrap;
     justify-content: center;
  }
+
 </style>
