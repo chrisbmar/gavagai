@@ -30,11 +30,9 @@ export default {
   },
   methods: {
     async search(term, value) {
-      // console.log(term, value);
         this.semanticWordResults = [];
         const data = await lexicon.search(term, value);
         this.semanticWordResults = data;
-        // console.log(this.semanticWordResults);
     }
   }
 };
@@ -61,7 +59,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  margin-top: 85px;
+  margin-top: 75px;
   color: black;
   opacity: 0.7;
 }

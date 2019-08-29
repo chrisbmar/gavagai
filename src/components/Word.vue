@@ -34,7 +34,6 @@ export default {
             this.loading = true;
             const wordInfo = await lexicon.wordInfoSearch(event.target.innerText);
             this.wordInformation = wordInfo;
-            console.log(this.wordInformation);
             this.isThereWordInfo = true;
             this.loading = false;
         },
